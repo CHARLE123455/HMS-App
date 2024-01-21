@@ -100,3 +100,27 @@ void print_patient(vector<Patient> &patients, vector<Hospitals> &hospitals)
     cout << endl
          << endl;
 }
+
+//sort the hospital data by name
+
+bool name (Hospital& A, Hospital& B){
+    return A.H_name > B.H_name;
+}
+
+void sortHospitalByName (vector<Hospital> hospitals){
+    //sort the data
+    sort(hospitals.begin(),
+    hospitals.end(), name
+    ):
+
+    cout << "Sort By Name:"
+
+        << endl
+        << endl;
+    
+        
+    PrintHospitalData(hospitals);
+}
+bool rating (Hospital& A, Hospital& B){
+    return A.ratings > B.ratings;
+}
