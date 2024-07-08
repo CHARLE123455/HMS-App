@@ -224,63 +224,59 @@ void PrintHospitalByCity(
 // funtion to implement Hospital Management system
 
 void HospitalManagement(
-    string patient_Name[], int patient_id[], string patient_contact[], int bookingCost[], string hospital_Name[], int booking[],
-    string location[], int beds[], float rating[], string hospital_Contact[],
+    string patient_Name[], int patient_id[], string patient_contact[], int bookingCost[], string hospital_Name[],
+    int booking[], string location[], int beds[], float rating[], string hospital_Contact[],
     string doctor_Name[], int prices[])
 
+{
+
+    // store hospital and user data
+
+    vector<Hospital> hospitals;
+
+    // create objects for hospital and users
+
+    Hospital h;
+
+    for (size_t i = 0; i < 4; i++)
     {
+        h.H_name = hospital_Name[i];
+        h.locations = location[i];
+        h.available_beds = beds[i];
+        h.ratings = rating[i];
+        h.contact = hospital_Contact[i];
+        h.doctor_name = doctor_Name[i];
+        h.price = prices[i];
+        hospitals.push_back(h);
+    }
 
-        // store hospital and user data
+    // store the patients data
 
-        vector<Hospital> hospitals;
-
-        // create objects for hospital and users
-
-        Hospital h;
-
-        for (size_t i = 0; i < 4; i++)
-        {
-            h.H_name = hospital_Name[i];
-            h.locations = location[i];
-            h.available_beds = beds[i];
-            h.ratings = rating[i];
-            h.contact = hospital_Contact[i];
-            h.doctor_name = doctor_Name[i];
-            h.price = prices[i];
-            hospitals.push_back(h);
-        }
-        
-        // store the patients data
-
-        vector<Patient> patients
+    vector<Patient> patients
 
         Patient p;
 
-        for (size_t i = 0; i < 4; i++)
-        {
-            p.P_name = patient_Name[i];
-            p.P_id = patient_Id[i];
-            p.contact = patient_Contact[i];
-            p.price = bookingCost[i];
-            patients.push_back(p);
-        }
-
-        cout <<endl;
-
-        // call the various operations
-
-        PrintHospitalData(hospitals);
-        PrintPatientData(patients, hospitals);
-
-        sortHospitalByName(hospitals);
-        sortHospitalByRatings(hospitals);
-        sortHospitalByBedsAvailable(hospitals);
-        sortHospitalByPrice(hospitals);
-        PrintHospitalByCity("Lagos", hospitals);
-        
-        
+    for (size_t i = 0; i < 4; i++)
+    {
+        p.P_name = patient_Name[i];
+        p.P_id = patient_Id[i];
+        p.contact = patient_Contact[i];
+        p.price = bookingCost[i];
+        patients.push_back(p);
     }
-    
 
-    //Add Driver Code and make function call to test the code
-    
+    cout << endl;
+
+    // call the various operations
+
+    PrintHospitalData(hospitals);
+    PrintPatientData(patients, hospitals);
+
+    sortHospitalByName(hospitals);
+    sortHospitalByRatings(hospitals);
+    sortHospitalByBedsAvailable(hospitals);
+    sortHospitalByPrice(hospitals);
+    PrintHospitalByCity("Lagos", hospitals);
+}
+
+// Add Driver Code and make function call to test the code
